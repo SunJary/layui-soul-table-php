@@ -154,11 +154,11 @@ class SoulTable {
                 break;
             case 'start':
                 $bind = $value.'%';
-                $sql = " not like :$valueBind ";
+                $sql = " like :$valueBind ";
                 break;
             case 'end':
                 $bind = '%'.$value;
-                $sql = " not like :$valueBind ";
+                $sql = " like :$valueBind ";
                 break;
             case 'null':
                 $sql = " is null ";
