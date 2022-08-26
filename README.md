@@ -1,13 +1,7 @@
-<?php
-use app\common\lib\SoulTable;
+# layui-soul-table 后台PHP版
+## 使用方法
 
-/**
- * 这里用thinkPHP来演示
- * TestController 是控制器
- * TestModel 就是一个普通的模型
- * input() 接收前端传来的字段
- */
-class TestController {
+```
     public function test()
     {
         $filterSos = input('filterSos');
@@ -43,4 +37,4 @@ class TestController {
 
         var_dump($list);
     }
-}
+```
