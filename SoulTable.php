@@ -46,7 +46,15 @@ class SoulTable {
         $this->fieldMap = $fieldMap;
 
         list($sql, $having) = $this->parseSoulTable($filterSos);
-        return [$sql, $having, $this->bind];
+        if (!$having) {
+            // think-orm的having查询不能使用链式查询，如果有其他的having条件，需要手动拼接
+            // 因此，如果having为空 则返回 1=1，便于拼接操作
+            $having = ' 1=1 ';
+        }
+        if (!$sql) {
+            $sql = ' 1=1 ';
+        }
+  return [$sql, $having, $this->bind];
     }
 
     private function parseSoulTable($filter)
